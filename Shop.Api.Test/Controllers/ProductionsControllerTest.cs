@@ -32,7 +32,7 @@ namespace Shop.Api.Test
                 CatalogueName = "Sports"
             };
 
-            var mockService = new MockShopService(new List<Product> { p1, p2 });
+            var mockService = new MockProductService(new List<Product> { p1, p2 });
 
             //When:
             var controller = new ProductsController(mockService);
@@ -57,7 +57,7 @@ namespace Shop.Api.Test
                 CatalogueName = "Sports"
             };
 
-            var mockService = new MockShopService(new List<Product> { p1 });
+            var mockService = new MockProductService(new List<Product> { p1 });
 
             //When:
             var controller = new ProductsController(mockService);
@@ -74,7 +74,7 @@ namespace Shop.Api.Test
         public void GetProduct_NotFound()
         {
             //Given: no product
-            var mockService = new MockShopService(new List<Product>());
+            var mockService = new MockProductService(new List<Product>());
 
             //When:
             var productId = Guid.NewGuid();

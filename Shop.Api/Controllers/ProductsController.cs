@@ -12,25 +12,25 @@ namespace Shop.Api.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        public ProductsController(IShopService service)
+        public ProductsController(IProductService service)
         {
-            ShopService = service;            
+            ProductService = service;            
         }
 
-        private IShopService ShopService { get; }
+        private IProductService ProductService { get; }
 
 
         [HttpGet]
         public IActionResult GetProducts([FromQuery] Guid catalogueId)
         {
-            var products = ShopService.GetProducts(catalogueId);
+            var products = ProductService.GetProducts(catalogueId);
             return Ok(products);
         }
 
         [HttpGet("{productId}")]
         public IActionResult GetProduct(Guid productId)
         {
-            var product = ShopService.GetProduct(productId);
+            var product = ProductService.GetProduct(productId);
 
             if(product == null)
                 return NotFound(productId);

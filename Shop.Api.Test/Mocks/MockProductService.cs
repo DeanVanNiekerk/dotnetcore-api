@@ -6,9 +6,9 @@ using Shop.Domain.Model;
 
 namespace Shop.Api.Test.Mocks
 {
-    public class MockShopService : IShopService
+    public class MockProductService : IProductService
     {
-        public MockShopService(List<Product> products)
+        public MockProductService(List<Product> products)
         {
             Products = products;
         }
